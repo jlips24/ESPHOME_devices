@@ -16,9 +16,10 @@ Under the line that says `captive_portal:`, paste the contents of the `config.ya
 Once you are happy with the config, click save, install, and then wirelessly. This will send an OTA update to your device.
 
 ## Things to change
-- Line 17 (name): I recomend changing this to something more descriptive, like 'Living Room Temperature'.
-- Line 18-19 (filters): You can leave this if you want temperature readings in farenheight, but if you want celcius just delete these two lines.
-- Line 22 (name): I recomend changing this to something more descriptive, like 'Living Room Humidity'.
+- Line 19 (name): I recomend changing this to something more descriptive, like 'Living Room Temperature'.
+- Line 20-21 (filters): You can leave this if you want temperature readings in farenheight, but if you want celcius just delete these two lines.
+- Line 24 (name): I recomend changing this to something more descriptive, like 'Living Room Humidity'.
+- Line 51 (`Room Name`): This text will be rendered on the top of the display. I recomend changing this to the name of the room the device will be placed in.
 
 > :warning: **If you did not follow the wiring diagram or used a different board,** you may also want to change the following:
 

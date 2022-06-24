@@ -1,13 +1,15 @@
+# Enabling web sserver
 web_server:
   port: 80
   include_internal: true
 
+# Temp/Humidity Sensor
 i2c:
   - id: i2c_bus_a
-    sda: GPIO23
+    sda: GPIO21
     scl: GPIO22
   - id: i2c_bus_b
-    sda: GPIO21
+    sda: GPIO18
     scl: GPIO19
     
 sensor:
@@ -23,10 +25,21 @@ sensor:
     address: 0x44
     update_interval: 30s
 
+# Display
+time:
+  - platform: homeassistant
+    id: esptime
+
 font:
   - file: "gfonts://Poppins"
-    id: font1
-    size: 20
+    id: poppins8
+    size: 8
+  - file: "gfonts://Poppins"
+    id: poppins48
+    size: 48
+  - file: "gfonts://Poppins"
+    id: poppins14
+    size: 14
 
 display:
   - platform: ssd1306_i2c
@@ -34,6 +47,19 @@ display:
     model: "SSD1306 128x64"
     address: 0x3C
     lambda: |-
-      it.printf(0, 0, id(poppins), "Temperature: %.1f", id(temp).state);
-      it.printf(0, 32, id(poppins), "Humidity: %.1f", id(humidity).state);
-    
+      // Print "Room Name" in top center
+      it.printf(64, 0, id(poppins8), TextAlign::TOP_CENTER, "Room Name");
+      
+      // Print time in HH:MM format
+      it.strftime(0, 60, id(poppins48), TextAlign::BASELINE_LEFT, "%H:%M", id(esptime).now());
+      
+      // Print temperature from sensor
+      if (id(temp).has_state()) {
+        it.printf(127, 23, id(poppins14), TextAlign::TOP_RIGHT, "%.1f°", id(temp).state);
+      }
+      
+      // Print humidity from the sensor
+      if(id(humidity).has_state()) {
+        it.printf(127, 60, id(poppins14), TextAlign::BASELINE_RIGHT, "%1f %%", id(temp).state);
+      }
+
