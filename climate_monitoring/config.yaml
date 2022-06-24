@@ -1,0 +1,38 @@
+web_server:
+  port: 80
+  include_internal: true
+
+i2c:
+  - id: i2c_bus_a
+    sda: GPIO23
+    scl: GPIO22
+  - id: i2c_bus_b
+    sda: GPIO21
+    scl: GPIO19
+    
+sensor:
+  - platform: sht3xd
+    i2c_id: i2c_bus_a
+    temperature:
+      name: "Temperature"
+      filters:
+        - lambda: return x * (9.0/5.0) + 32.0;
+      unit_of_measurement: "°F"
+    humidity:
+      name: "Humidity"
+    address: 0x44
+    update_interval: 30s
+
+font:
+  - file: "gfonts://Poppins"
+    id: font1
+    size: 20
+
+display:
+  - platform: ssd1306_i2c
+    i2c_id: i2c_bus_b
+    model: "SSD1306 128x64"
+    address: 0x3C
+    lambda: |-
+      it.print(0, 0, id(font1), "Hello World!");
+    
