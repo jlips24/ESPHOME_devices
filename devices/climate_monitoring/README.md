@@ -1,5 +1,5 @@
 # Climate Monitoring
-###### Temperature and humidity monitoring with a screen
+Temperature and humidity monitoring with a screen
 
 ## Wiring
 If you purchased the ESP32 from the link in the Bill of Materials, please refer to this wiring diagram:
