@@ -34,5 +34,6 @@ display:
     model: "SSD1306 128x64"
     address: 0x3C
     lambda: |-
-      it.print(0, 0, id(font1), "Hello World!");
+      it.printf(0, 0, id(poppins), "Temperature: %.1f", id(temp).state);
+      it.printf(0, 32, id(poppins), "Humidity: %.1f", id(humidity).state);
     
