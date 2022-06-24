@@ -1,6 +1,9 @@
 # Climate Monitoring
 Temperature and humidity monitoring with a screen
 
+## Bill of Materials
+The bill of materials is in the file `BOM.md` in this directory. Please be aware that some or all of the links may be affiliate links. Feel free to use them, or search for the part on your own.
+
 ## Wiring
 If you purchased the ESP32 from the link in the Bill of Materials, please refer to this wiring diagram:
 ![Wiring Diagram](wiring_diagram.jpg)
