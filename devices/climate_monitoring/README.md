@@ -28,4 +28,4 @@ Once you are happy with the config, click save, install, and then wirelessly. Th
 - Line 11 (i2c_bus_b scl pin): Refer to your board's pinout. Can be any GPIO pin that isn't input only.
 
 ## Notes
-This device requires two i2c buses. This means it's incompatible with the ESP8266, which only supports one i2c bus.
+This device requires two I2C buses. This means it's incompatible with the ESP8266, which only supports one I2C bus. There is a way to communicate with the display over SPI instead of I2C please refer to [this documentation](https://esphome.io/components/display/ssd1306.html#over-spi) for information on that.
